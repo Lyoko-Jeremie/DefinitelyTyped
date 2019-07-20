@@ -13,6 +13,7 @@ import * as events from 'events';
 import * as http from 'http';
 import * as https from 'https';
 import * as net from 'net';
+import * as stream from 'stream';
 
 // WebSocket socket.
 declare class WebSocket extends events.EventEmitter {
@@ -211,6 +212,9 @@ declare namespace WebSocket {
         addListener(event: 'listening', cb: () => void): this;
         addListener(event: string | symbol, listener: (...args: any[]) => void): this;
     }
+
+    function createWebSocketStream(websocket: WebSocket, options?: stream.DuplexOptions): stream.Duplex;
+
 }
 
 export = WebSocket;
